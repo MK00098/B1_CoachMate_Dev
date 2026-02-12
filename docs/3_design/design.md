@@ -2,174 +2,137 @@
 
 ## 컨셉
 
-**직관적, 스마트, 간결**
+**직관적, 스마트, 간결** — Apple 스타일
 
 슬로건: `Be Smarter, Be Better.`
 
 ## 색상
 
-### 기본 색상
 | 이름 | HEX | 용도 |
 |------|-----|------|
-| White | `#ffffff` | 배경, 버튼 (블랙 배경) |
-| Black | `#000000` | 다크 섹션 배경, 버튼 (그레이 배경) |
-| Light Gray | `#f5f5f7` | 카드, Footer |
-| Space Black | `#1d1d1f` | 메인 텍스트, 버튼 호버 |
+| White | `#ffffff` | 배경, 라이트 섹션, 버튼 (다크 배경) |
+| Black | `#000000` | 다크 섹션 배경, 버튼 (라이트 배경) |
+| Light Gray | `#f5f5f7` | 카드, Nav, Footer 배경 |
+| Space Black | `#1d1d1f` | 메인 텍스트 |
 | Space Gray | `#86868b` | 보조 텍스트 |
-| Border | `#d2d2d7` | 테두리 (서브 페이지) |
+| Border | `#d2d2d7` | 테두리, 구분선 |
+| Accent | `#667eea → #764ba2` | CTA 그라데이션 (운동일지) |
 
-### 투명도 색상 (index.html 기준)
-| 색상 | RGBA | 용도 |
-|------|------|------|
-| 반투명 네비게이션 배경 | `rgba(255, 255, 255, 0.8)` | 네비게이션 배경 |
-| 반투명 네비게이션 테두리 | `rgba(0, 0, 0, 0.1)` | 네비게이션 하단 테두리 (메인) |
-| 반투명 버튼 호버 | `rgba(255, 255, 255, 0.9)` | 블랙 배경 버튼 호버 |
-
-## 타이포그래피
+## 폰트
 
 ```css
 font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
 ```
 
-### 데스크톱 (기본)
-| 요소 | 크기 | 굵기 | Letter Spacing |
-|------|------|------|----------------|
-| Hero 제목 (h1) | 3.5rem (56px) | 600 | -0.03em |
-| 섹션 제목 (h2) | 3rem (48px) | 600 | -0.02em |
-| 서브타이틀 (h3) | 1.2rem (19px) | 400 | 0 |
-| 본문 | 1rem (16px) | 400 | 0 |
-| 보조 텍스트 | 0.95rem (15px) | 400 | 0.02em |
+## 반응형 — 3단계 Breakpoint (Apple 방식)
 
-### 모바일 (@media max-width: 768px)
-| 요소 | 크기 | 변화 |
+`clamp()` 대신 `@media` 고정값으로 단계별 제어.
+
+### Breakpoint
+| 이름 | 조건 | 대상 |
 |------|------|------|
-| Hero 제목 (h1) | 2.5rem (40px) | -1rem |
-| Hero 서브타이틀 (h2) | 1.1rem (17.6px) | -0.1rem |
-| 섹션 제목 (h2) | 2.2rem (35.2px) | -0.8rem |
-| 섹션 서브타이틀 (h3) | 1rem (16px) | -0.2rem |
+| Desktop (Large) | > 1068px | 기본값 |
+| Tablet (Medium) | ≤ 1068px | `@media (max-width: 1068px)` |
+| Mobile (Small) | ≤ 734px | `@media (max-width: 734px)` |
 
-### 네비게이션
+### 타이포그래피 — 3단계
 
-| 요소 | 크기 | 굵기 |
-|------|------|------|
-| 로고 | 1rem (16px) | 600 |
-| 링크 | 0.75rem (12px) | 400 |
+| 요소 | Desktop | Tablet | Mobile |
+|------|---------|--------|--------|
+| Hero h1 | 4.5rem | 3.5rem | 2.5rem |
+| Hero h2 | 1.5rem | 1.3rem | 1.1rem |
+| Section h2 | 3.5rem | 2.8rem | 2.2rem |
+| Section h3 | 1.4rem | 1.2rem | 1rem |
+| Hero slogan | 1.1rem | 1rem | 0.9rem |
+| 본문 (p) | 1rem | 1rem | 1rem |
+| Nav 링크 | 0.85rem | 0.85rem | 0.85rem |
+| Footer | 0.8rem | 0.8rem | 0.8rem |
 
-## 레이아웃 (Apple 기준)
+> 큰 제목만 반응형, 본문/UI 텍스트는 고정.
 
-### 컨테이너
-- **최대 너비**: 980px
-- **좌우 패딩**: 22px
+### 레이아웃 — 3단계
 
-### 네비게이션 (index.html 기준)
-- **포지셔닝**: fixed (메인), sticky (서브 페이지)
-- **높이**: 5vh (반응형)
-- **배경**: rgba(255, 255, 255, 0.8)
-- **Backdrop filter**: saturate(180%) blur(20px)
-- **Border**:
-  - 메인 (index.html): 1px solid rgba(0, 0, 0, 0.1)
-  - 서브 페이지: 1px solid #d2d2d7
-- **z-index**: 100
+| 요소 | Desktop | Tablet | Mobile |
+|------|---------|--------|--------|
+| Section padding | 80px | 60px | 40px |
+| Section min-height | 500px | 400px | 300px |
+| Page header padding | 60px | 50px | 40px |
+| Page header min-height | 200px | 175px | 150px |
+| Card padding | 32px | 26px | 20px |
+| Card border-radius | 18px | 16px | 12px |
+| Input padding | 14px | 12px | 10px |
+| Button padding | 14px 24px | 12px 20px | 10px 16px |
+| Nav-links gap | 28px | 28px | 16px |
 
-### 섹션 여백
-- **수직 패딩**: 80px (데스크톱), 60px (모바일 @768px)
-- **수평 패딩**: 22px
-- **섹션 높이**:
-  - Hero: 100vh (min-height: 400px)
-  - Coaching/Career: 각 47.5vh
-  - scroll-margin-top: 5vh (네비게이션 오프셋)
+## 고정값 요소
 
-### 반응형 Breakpoint
-- **모바일**: `@media (max-width: 768px)`
-  - 폰트 크기 축소
-  - 섹션 패딩: 80px → 60px
+| 요소 | 값 | 비고 |
+|------|-----|------|
+| Nav 높이 | 44px | Apple 기준, 모든 화면 동일 |
+| Container max-width | 980px | |
+| 좌우 패딩 | 22px | |
+| Footer padding | 20px 0 | |
+| Form max-width | 600px | 운동일지 폼 전용 |
 
-## 인터랙션
-
-### Transition 속도
-- **네비게이션 링크**: 0.2s (빠른 반응)
-- **버튼**: 0.3s
-- **섹션**: 0.3s
-
-### Hover 효과
-- **네비게이션 링크**: opacity 0.8 → 1.0
-- **버튼**: scale(1.02)
-- **섹션**: transform scale
-
-## 버튼 스타일
+## 버튼
 
 ### Hero 버튼
-```css
-padding: 16px 32px;
-border-radius: 980px;
-font-size: 1.2rem;
-font-weight: 500;
-width: 320px;
+```
+padding: 16px 32px (Desktop) → 14px 28px (Tablet) → 12px 24px (Mobile)
+border-radius: 980px (완전 라운드)
+font-size: 1.2rem → 1.1rem → 1rem
+max-width: 320px / width: 100%
 ```
 
 ### 섹션 버튼
-```css
-padding: 14px 28px;
-border-radius: 980px;
-font-size: 0.9rem;
-font-weight: 500;
-width: 140px;
+```
+padding: 14px 28px → 12px 24px → 10px 20px
+border-radius: 980px
+font-size: 0.9rem (고정)
+min-width: 140px
 ```
 
 ### 배경별 버튼 색상
-- **블랙 배경**: 화이트 버튼
-- **그레이 배경**: 블랙 버튼
+- **블랙 배경** → 화이트 버튼
+- **화이트 배경** → 블랙 버튼
 
-## 간격 시스템 (Apple 원칙)
+## 인터랙션
 
-### 정보 그룹핑 (Information Grouping)
-관련된 정보는 가깝게, 행동 요소는 멀리 배치하여 시각적 계층을 형성합니다.
+| 요소 | Transition | Hover 효과 |
+|------|-----------|------------|
+| Nav 링크 | 0.2s | opacity 0.8 → 1.0 |
+| 버튼 | 0.3s | scale(1.02) |
+| Tool 카드 | 0.3s | scale(1.02) + box-shadow |
 
-### 기본 간격
+## 간격 시스템
+
 ```
 제목 (h1/h2)
-  ↓ 8px (타이트 - 정보 그룹)
+  ↓ 8px (타이트 — 정보 그룹)
 설명 (h2/h3)
-  ↓ 24px (넓게 - 행동 분리)
+  ↓ 24px (넓게 — 행동 분리)
 CTA 버튼
-  ↓ 16px (Hero만 해당)
-추가 요소 (슬로건 등)
 ```
 
-### 적용 예시
+### 원칙
+1. **관련 정보는 가깝게** — 제목과 설명은 8px
+2. **행동 요소는 분리** — CTA 전 24px
+3. **일관성 유지** — 모든 섹션 동일 규칙
 
-**Hero Section**
-- h1 → h2: `margin-bottom: 8px`
-- h2 → button: `margin-bottom: 24px`
-- button → slogan: `margin-bottom: 16px`
-
-**Coaching/Career Sections**
-- h2 → h3: `margin-bottom: 8px`
-- h3 → button: `margin-bottom: 24px`
-
-### 간격 원칙
-1. **관련 정보는 가깝게**: 제목과 설명은 하나의 정보 그룹
-2. **행동 요소는 분리**: CTA 전 충분한 공간으로 사용자 결정 유도
-3. **일관성 유지**: 모든 섹션에 동일한 간격 규칙 적용
-
-## 구조
+## 페이지 구조
 
 ```
 CoachMate
-├── Smarter (smarter.html)
-│   ├── 운동일지 AI (coaching-log.html)
-│   └── 식단관리 AI (준비 중)
-└── Better (better.html)
-    ├── 교육 (준비 중)
-    ├── 자격증 (준비 중)
-    └── 채용 (준비 중)
+├── index.html          ← 홈 (Hero + 섹션)
+├── smarter.html        ← Smarter (Tool 카드)
+│   └── coaching-log.html  ← AI 운동일지 (폼)
+├── better.html         ← Better (Tool 카드)
+└── about.html          ← About (히어로)
 ```
 
-## 디자인 원칙
+## Nav 동작
 
-1. **제목은 간결하게** - 불필요한 설명 제거
-2. **CTA는 배경 대비** - 블랙 배경↔화이트, 그레이 배경↔블랙
-3. **간격으로 계층 표현** - 관련 정보는 가깝게(8px), 행동은 멀리(24px)
-4. **일관성 우선** - 모든 페이지 동일한 기준 적용
-5. **빠른 반응** - Transition 0.2s~0.3s
-6. **반응형 레이아웃** - vh 단위로 화면 비율 유지
+| 페이지 | position | 이유 |
+|--------|----------|------|
+| index.html | `fixed` | 풀스크린 Hero 위에 떠야 함 |
+| 서브 페이지 | `sticky` | 일반 스크롤 |
